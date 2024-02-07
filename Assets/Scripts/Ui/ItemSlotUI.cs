@@ -13,6 +13,8 @@ public class ItemSlotUI : MonoBehaviour
     public Image _itemIcon;
     public Image _shopIcon;
     private ItemData curSlot;
+    public GameObject buyButton;
+    public GameObject soldOutButton;
 
     public int index;
     public bool soldOut;
@@ -23,24 +25,45 @@ public class ItemSlotUI : MonoBehaviour
         curSlot = slot;
         _itemIcon.gameObject.SetActive(true);
         _itemIcon.sprite = slot.icon;
+        if(_shopIcon != null )
         _shopIcon.sprite = slot.typeIcon_Shop;
-        _itemName.text = slot.name;
+        if(_itemName != null )
+        _itemName.text = slot.displayName;
+        if(_itemDescription != null )
         _itemDescription.text = slot.description;
-        if(slot.type == ItemType.Weapon|| slot.type == ItemType.Neck|| slot.type == ItemType.Gloves)
+        if(_itemPoint != null)
         {
-            _itemPoint.text = slot.itemPoint.ToString();
+            switch(slot.type)
+            {
+                case ItemType.Ring:
+                    _itemPoint.color = Color.green;
+                    _itemPoint.text = slot.itemPoint.ToString();
+                    break;
+                case ItemType.Shoes:
+                    _itemPoint.color = Color.blue;
+                    _itemPoint.text = slot.itemPoint.ToString();
+                    break;
+                default:
+                    _itemPoint.text = slot.itemPoint.ToString();
+                    break;
+
+            }
         }
-        else if(slot.type == ItemType.Ring)
-        {
-            _itemPoint.color = Color.green;
-            _itemPoint.text = slot.itemPoint.ToString();
-        }
-        else
-        {
-            _itemPoint.color = Color.blue;
-            _itemPoint.text = slot.itemPoint.ToString();
-        }
+        if(_itemPrice != null )
         _itemPrice.text = slot.itemPrice.ToString();
+        if(buyButton != null || soldOutButton != null)
+        {
+            if (Shop.instance.soldOut)
+            {
+                buyButton.gameObject.SetActive(false);
+                soldOutButton.gameObject.SetActive(true);
+            }
+            else
+            {
+                buyButton.gameObject.SetActive(true);
+                soldOutButton.gameObject.SetActive(false);
+            }
+        }
 
     }
 
@@ -48,5 +71,10 @@ public class ItemSlotUI : MonoBehaviour
     {
         curSlot = null;
         _itemIcon.gameObject.SetActive(false);
+    }
+
+    public void OnButtonClick()
+    {
+        Shop.instance.BuyItem(index);
     }
 }

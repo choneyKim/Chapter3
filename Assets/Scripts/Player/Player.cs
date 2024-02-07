@@ -22,7 +22,7 @@ public class Player : MonoBehaviour
     private int level;
     private float maxExp;
     private float curExp;
-    private int gold;
+    public int gold;
 
     public TextMeshProUGUI _playerName;
     public TextMeshProUGUI _playerClass;
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI _playerExp;
     public Slider _playerExpSlider;
 
-    public static Player instance;
+    public static Player instance; //ÇÃ·¹ÀÌ¾î ½Ì±ÛÅæ
 
     private void Awake()
     {
