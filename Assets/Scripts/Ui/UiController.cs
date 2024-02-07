@@ -21,6 +21,7 @@ public class UiController : MonoBehaviour
     {
         menuIndex[0].gameObject.SetActive(false);
         menuIndex[index].gameObject.SetActive(true);
+        PlayerInventory.Instance.UpdateUI();
     }
     public void OnClickReturn(int index)
     {

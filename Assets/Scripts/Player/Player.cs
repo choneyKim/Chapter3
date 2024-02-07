@@ -50,11 +50,11 @@ public class Player : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-
+        UpdateStatus();
     }
+
 
     private void InitailizePlayer()
     {
@@ -96,5 +96,18 @@ public class Player : MonoBehaviour
                 _playerDescription.text = "코딩의 신이 되었습니다. 하지만 일이 많아 여전히 퇴근은 못합니다.";
                 break;
         }
+    }
+
+    private void UpdateStatus()
+    {
+        _playerName.text = playerName;
+        _playerLevel.text = level.ToString();
+        _playerAttack.text = attackPoint.ToString();
+        _playerDef.text = defPoint.ToString();
+        _playerHealth.text = healthPoint.ToString();
+        _playerCritical.text = criticalPoint.ToString();
+        _playerGold.text = gold.ToString("#,##0");
+        _playerExp.text = $"{curExp}/{maxExp}";
+        _playerExpSlider.value = curExp / maxExp;
     }
 }

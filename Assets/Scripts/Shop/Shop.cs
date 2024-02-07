@@ -23,7 +23,7 @@ public class Shop : MonoBehaviour
         if (Player.instance.gold >= shopInventory[index].itemPrice)
         {
             Player.instance.gold -= shopInventory[index].itemPrice;
-            PlayerInventory.Instance.playerInventory.Add(shopInventory[index]);
+            PlayerInventory.Instance.playerInventory[index] = shopInventory[index];
             soldOut = true;
         }
         else Debug.Log("금액이 부족합니다.");

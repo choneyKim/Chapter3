@@ -19,11 +19,10 @@ public class ShopInventory : Shop
             uiSlots[i].index = i;
             uiSlots[i].Set(shopInventory[i]);
         }
-        _playerGold.text = Player.instance._playerGold.text;
     }
 
-    void Update()
+    private void FixedUpdate()
     {
-
+        _playerGold.text = Player.instance._playerGold.text;
     }
 }
