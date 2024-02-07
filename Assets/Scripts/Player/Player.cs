@@ -13,15 +13,15 @@ public enum classType
 
 public class Player : MonoBehaviour
 {
-    private string playerName;
-    private classType playerClass;
-    private int attackPoint;
-    private int defPoint;
-    private int healthPoint;
-    private int criticalPoint;
-    private int level;
-    private float maxExp;
-    private float curExp;
+    public string playerName;
+    public classType playerClass;
+    public int attackPoint;
+    public int defPoint;
+    public int healthPoint;
+    public int criticalPoint;
+    public int level;
+    public float maxExp;
+    public float curExp;
     public int gold;
 
     public TextMeshProUGUI _playerName;
@@ -37,8 +37,9 @@ public class Player : MonoBehaviour
     public Slider _playerExpSlider;
 
     public static Player instance; //ÇÃ·¹ÀÌ¾î ½Ì±ÛÅæ
+    public PlayerEquip playerEquip;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         if (instance == null)
             instance = this;
@@ -47,14 +48,12 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-
+        playerEquip = GetComponent<PlayerEquip>();
     }
-
     private void FixedUpdate()
     {
-        UpdateStatus();
+        playerEquip.UpdateStatus();
     }
-
 
     private void InitailizePlayer()
     {
@@ -98,22 +97,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void UpdateStatus()
+    public void EquipItemButton(int index)
     {
-        _playerName.text = playerName;
-        _playerLevel.text = level.ToString();
-        _playerAttack.text = attackPoint.ToString();
-        _playerDef.text = defPoint.ToString();
-        _playerHealth.text = healthPoint.ToString();
-        _playerCritical.text = criticalPoint.ToString();
-        _playerGold.text = gold.ToString("#,##0");
-        _playerExp.text = $"{curExp}/{maxExp}";
-        _playerExpSlider.value = curExp / maxExp;
-    }
-
-
-    public void EquipItem()
-    {
-
+        playerEquip.EquipItem(index);
     }
 }

@@ -7,7 +7,7 @@ public class PlayerInventory : MonoBehaviour
 {
     public ItemData[] playerInventory;
     public ItemSlotUI[] uiSlots;
-    public int maxPlayerBag;
+    public bool[] isEquip;
     public static PlayerInventory Instance;  //플레이어 인벤토리 싱글톤
 
     private void Awake()
@@ -18,8 +18,9 @@ public class PlayerInventory : MonoBehaviour
 
     void Start()
     {
-        //maxPlayerBag = 25;
         playerInventory = new ItemData[uiSlots.Length];
+        isEquip = new bool[uiSlots.Length];
+
         for (int i = 0; i < uiSlots.Length; i++)
         {
             playerInventory[i] = ScriptableObject.CreateInstance<ItemData>();
@@ -28,9 +29,9 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
+        UpdateUI();
     }
 
 
@@ -41,6 +42,7 @@ public class PlayerInventory : MonoBehaviour
             if (playerInventory[i] != null)
             {
                 uiSlots[i].Set(playerInventory[i]);
+                uiSlots[i].isEquip = isEquip[i];
             }
             else
                 uiSlots[i].Clear();

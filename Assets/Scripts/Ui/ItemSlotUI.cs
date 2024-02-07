@@ -15,8 +15,10 @@ public class ItemSlotUI : MonoBehaviour
     private ItemData curSlot;
     public GameObject buyButton;
     public GameObject soldOutButton;
+    public GameObject euipStatus;
 
     public int index;
+    public bool isEquip;
     public bool soldOut;
     private void Start()
     {
@@ -58,13 +60,24 @@ public class ItemSlotUI : MonoBehaviour
         {
             if (soldOut)
             {
-                buyButton.gameObject.SetActive(false);
-                soldOutButton.gameObject.SetActive(true);
+                buyButton.SetActive(false);
+                soldOutButton.SetActive(true);
             }
             else
             {
-                buyButton.gameObject.SetActive(true);
-                soldOutButton.gameObject.SetActive(false);
+                buyButton.SetActive(true);
+                soldOutButton.SetActive(false);
+            }
+        }
+        if (euipStatus != null)
+        {
+            if (isEquip)
+            {
+                euipStatus.SetActive(true);
+            }
+            else
+            {
+                euipStatus.SetActive(false);
             }
         }
 
@@ -84,4 +97,5 @@ public class ItemSlotUI : MonoBehaviour
     {
         UiController.instance.OnClickSelectItem(index);
     }
+
 }
