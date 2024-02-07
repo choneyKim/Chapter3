@@ -10,7 +10,6 @@ public class Shop : MonoBehaviour
     public List<ItemData> selectedItem;
 
     public int index;
-    public bool soldOut;
 
     protected virtual void Awake()
     {
@@ -24,7 +23,7 @@ public class Shop : MonoBehaviour
         {
             Player.instance.gold -= shopInventory[index].itemPrice;
             PlayerInventory.Instance.playerInventory[index] = shopInventory[index];
-            soldOut = true;
+            uiSlots[index].soldOut = true;
         }
         else Debug.Log("금액이 부족합니다.");
         

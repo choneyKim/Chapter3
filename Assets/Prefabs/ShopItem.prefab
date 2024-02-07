@@ -1104,6 +1104,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36286ce9cf62b6a49bd548fb876945e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuIndex: []
+  _itemNameEquip: {fileID: 0}
+  _itemDescriptionEquip: {fileID: 0}
+  _itemPointEquip: {fileID: 0}
+  _itemIconEquip: {fileID: 0}
+  _equipIconEquip: {fileID: 0}
   _itemName: {fileID: 6267758153081631141}
   _itemDescription: {fileID: 7096163823266512499}
   _itemPoint: {fileID: 2549062661847110105}
@@ -1373,7 +1379,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4050564833322948422}
         m_TargetAssemblyTypeName: ItemSlotUI, Assembly-CSharp
-        m_MethodName: OnButtonClick
+        m_MethodName: OnBuyButtonClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

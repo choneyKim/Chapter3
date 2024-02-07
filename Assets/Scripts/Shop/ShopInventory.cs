@@ -24,5 +24,17 @@ public class ShopInventory : Shop
     private void FixedUpdate()
     {
         _playerGold.text = Player.instance._playerGold.text;
+        UpdateUI();
+    }
+
+    public void UpdateUI()
+    {
+        for (int i = 0; i < shopInventory.Count; i++)
+        {
+            if (uiSlots[i] != null)
+                uiSlots[i].Set(shopInventory[i]);
+            else
+                uiSlots[i].Clear();
+        }
     }
 }

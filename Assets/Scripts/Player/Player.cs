@@ -110,4 +110,10 @@ public class Player : MonoBehaviour
         _playerExp.text = $"{curExp}/{maxExp}";
         _playerExpSlider.value = curExp / maxExp;
     }
+
+
+    public void EquipItem()
+    {
+
+    }
 }

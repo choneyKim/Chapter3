@@ -18,7 +18,10 @@ public class ItemSlotUI : MonoBehaviour
 
     public int index;
     public bool soldOut;
-    
+    private void Start()
+    {
+
+    }
 
     public void Set(ItemData slot)
     {
@@ -53,7 +56,7 @@ public class ItemSlotUI : MonoBehaviour
         _itemPrice.text = slot.itemPrice.ToString();
         if(buyButton != null || soldOutButton != null)
         {
-            if (Shop.instance.soldOut)
+            if (soldOut)
             {
                 buyButton.gameObject.SetActive(false);
                 soldOutButton.gameObject.SetActive(true);
@@ -73,8 +76,12 @@ public class ItemSlotUI : MonoBehaviour
         _itemIcon.gameObject.SetActive(false);
     }
 
-    public void OnButtonClick()
+    public void OnBuyButtonClick()
     {
         Shop.instance.BuyItem(index);
+    }
+    public void OnSelectButtonClick()
+    {
+        UiController.instance.OnClickSelectItem(index);
     }
 }
