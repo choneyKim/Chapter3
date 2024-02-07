@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: "\uB178\uC608\uBAA9\uAC78\uC774"
   description: "\uB178\uC608\uBC88\uD638\uAC00 \uC801\uD600\uC788\uB2E4."
-  type: 3
+  type: 1
   icon: {fileID: -1540752031, guid: 2164ca0bcc7401d4eb1424d7a5bbccbd, type: 3}
   itemPoint: 5
+  itemPrice: 500
   typeIcon_Equip: {fileID: 21300000, guid: 6aacbd2cce759584d9f35e7db3534eb1, type: 3}
   typeIcon_Shop: {fileID: 21300000, guid: 87b1f5bc653959247b604739de1f4689, type: 3}

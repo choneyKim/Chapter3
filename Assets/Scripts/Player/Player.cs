@@ -36,8 +36,12 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI _playerExp;
     public Slider _playerExpSlider;
 
+    public static Player instance;
+
     private void Awake()
     {
+        if (instance == null)
+            instance = this;
         InitailizePlayer();
     }
 

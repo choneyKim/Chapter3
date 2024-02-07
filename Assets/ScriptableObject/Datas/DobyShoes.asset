@@ -17,5 +17,6 @@ MonoBehaviour:
   type: 4
   icon: {fileID: -1914231062, guid: 2164ca0bcc7401d4eb1424d7a5bbccbd, type: 3}
   itemPoint: 15
+  itemPrice: 1000
   typeIcon_Equip: {fileID: 21300000, guid: 9a1f1dd8819711b41abaf1a2f6c373aa, type: 3}
   typeIcon_Shop: {fileID: 21300000, guid: 9a1f1dd8819711b41abaf1a2f6c373aa, type: 3}
