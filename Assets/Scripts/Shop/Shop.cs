@@ -8,6 +8,7 @@ public class Shop : MonoBehaviour
     public List<ItemData> shopInventory;
     public ItemSlotUI[] uiSlots;
     public List<ItemData> selectedItem;
+    public GameObject purchasePop;
 
     public int index;
 
@@ -24,8 +25,13 @@ public class Shop : MonoBehaviour
             Player.instance.gold -= shopInventory[index].itemPrice;
             PlayerInventory.Instance.playerInventory[index] = shopInventory[index];
             uiSlots[index].soldOut = true;
+            purchasePop.SetActive(true);
         }
         else Debug.Log("금액이 부족합니다.");
         
+    }
+    public void ConfirmButton()
+    {
+        purchasePop.SetActive(false);
     }
 }

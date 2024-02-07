@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI _playerExp;
     public Slider _playerExpSlider;
 
-    public static Player instance; //플레이어 싱글톤
+    public static Player instance; //플레이어 싱글톤 playerGold를 shop에서 사용
     public PlayerEquip playerEquip;
 
     protected virtual void Awake()
