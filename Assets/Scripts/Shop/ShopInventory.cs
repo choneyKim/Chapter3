@@ -1,21 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopInventory : MonoBehaviour
 {
-    public List<ItemData> data;
+    public List<ItemData> shopInventory;
     public bool[] isBuy;
-    public Dictionary<bool, List<ItemData>> shopInventory;
-
+    public TextMeshProUGUI _itemName;
+    public TextMeshProUGUI _itemDescription;
+    public TextMeshProUGUI _itemPoint;
+    public TextMeshProUGUI _itemPrice;
+    public Image _itemIcon;
 
     void Start()
     {
-        shopInventory = new Dictionary<bool, List<ItemData>>();
-        for (int i = 0; i < data.Count; i++)
-        {
-            shopInventory.Add(isBuy[i], data);
-        }
         
     }
 
